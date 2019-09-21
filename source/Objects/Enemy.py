@@ -48,12 +48,16 @@ class Enemy(ObjectBase):
     def update(self, pressed_keys):
         self.move_angle_time(self.velocity)
 
+
     def oncollide(self, obj:'ObjectBase'):
         if obj.object_type == "Bullet":
             self.delete(self)
             self.delete(obj)
 
             self.change_score(100)
+        if obj.object_type == "Player":
+            obj.oncollide(self)
+            self.delete(self)
 
     def onscreenleave(self):
         self.delete(self)
