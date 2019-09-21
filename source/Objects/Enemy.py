@@ -50,9 +50,18 @@ class Enemy(ObjectBase):
         self.screen_c_w, self.screen_c_h = utils.get_surface_center(self.screen)
         self.tPlayer = None
 
+        self.PlayerList = [None,None]
+        self.realAngle =0
         for obj in self.siblings:
             if(obj.object_type == "Player"):
-                self.tPlayer = obj
+                print(obj.get_num())
+                if(obj.get_num()==1):
+                    self.PlayerList[0] = obj
+                    self.tPlayer = obj    
+                    
+                else:
+                    self.PlayerList[1] = obj
+        self.tPlayer = self.PlayerList[random.randint(0,1)]
 
 
     def update(self, pressed_keys):

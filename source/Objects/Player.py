@@ -34,6 +34,9 @@ class Player(ObjectBase):
     def get_y(self):
         return self.y
 
+    def get_num(self):
+        return self.number
+
     def draw(self):
         self.draw_to_screen(self.image)
 
