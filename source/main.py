@@ -9,9 +9,9 @@ def run():
         xml=open("resources/xml/rooms.xml").read(),
         start_room="menu",
         images={
-            "player1": {"path": "resources/images/player/player.png", "w": 32, "h": 32},
-            "player2": {"path": "resources/images/player/player2.png", "w": 32, "h": 32},
-            "enemy": {"path": "resources/images/enemy/enemy.png", "w": 32, "h": 32}
+            "player1": {"path": "resources/player.png", "w": 32, "h": 32},
+            "player2": {"path": "resources/player2.png", "w": 32, "h": 32},
+            "enemy": {"path": "resources/witch.png", "w": 32, "h": 32}
         },
         sprite_sheets={
 
