@@ -1,8 +1,13 @@
 # BlameYourFriend
 Play co-op and survive as long as possible. 
+<img src="https://github.com/Tyndallray/BlameYourFriend/blob/master/resources/images/game.gif" alt="alt text" style="width:200;height:200">
+
+![CodeSize](https://img.shields.io/github/languages/code-size/Tyndallray/BlameYourFriend)
+![License](https://img.shields.io/github/license/Tyndallray/BlameYourFriend)
+![LastCommit](https://img.shields.io/github/last-commit/Tyndallray/BlameYourFriend)
 
 ## Python Game Engine
-Check out this [Python Game engine](https://github.com/CPSuperstore-Inc/PyGE) used to develop this game, a piece of art by [Christopher](https://github.com/CPSuperstore)
+Check out this [Python Game Engine](https://github.com/CPSuperstore-Inc/PyGE) used to develop this game, a piece of art by [Christopher](https://github.com/CPSuperstore)
 
 ## Setup
 * [Python 3.7 or above](https://www.python.org/downloads/)
