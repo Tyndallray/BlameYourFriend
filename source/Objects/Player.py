@@ -11,7 +11,7 @@ class Player(ObjectBase):
     def __init__(self, screen:pygame.Surface, args: dict, parent:'Room'):
         ObjectBase.__init__(self, screen, args, parent)
 
-        self.angle = 90
+        self.angle = 0
         self.velocity = 100
 
         self.number = self.get_mandatory_arguement("number", int)
@@ -22,10 +22,17 @@ class Player(ObjectBase):
 
         self.shot_cool_down = AlarmClock(0.125)
         self.shot_cool_down.start()
+        
 
     @property
     def bullet_y(self):
         return self.y + (self.h / 2)
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y
 
     def draw(self):
         self.draw_to_screen(self.image)
@@ -39,6 +46,14 @@ class Player(ObjectBase):
 
         if (pressed_keys[pygame.K_s] == 1 and self.number == 1) or (pressed_keys[pygame.K_DOWN] == 1 and self.number == 2):
             self.time_move(0, -self.velocity)
+            self.boundary_check()
+
+        if (pressed_keys[pygame.K_a] == 1 and self.number == 1) or (pressed_keys[pygame.K_LEFT] == 1 and self.number == 3):
+            self.time_move(-self.velocity, 0)
+            self.boundary_check()
+
+        if (pressed_keys[pygame.K_d] == 1 and self.number == 1) or (pressed_keys[pygame.K_RIGHT] == 1 and self.number == 3):
+            self.time_move(self.velocity, 0)
             self.boundary_check()
 
         if self.shot_cool_down.finished:
