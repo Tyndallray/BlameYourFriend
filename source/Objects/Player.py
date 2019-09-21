@@ -28,6 +28,7 @@ class Player(ObjectBase):
 
         self.shot_cool_down = AlarmClock(0.125)
         self.shot_cool_down.start()
+        
 
         self.display_image = self.image
         self.angle = 0
@@ -35,6 +36,15 @@ class Player(ObjectBase):
     @property
     def bullet_y(self):
         return self.y + (self.h / 2)
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y
+
+    def get_num(self):
+        return self.number
 
     def draw(self):
         if(self.isDead == False):
