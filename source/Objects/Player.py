@@ -33,7 +33,8 @@ class Player(ObjectBase):
         return self.y + (self.h / 2)
 
     def draw(self):
-        self.draw_to_screen(self.image)
+        if(self.isDead == False):
+            self.draw_to_screen(self.image)
 
     def update(self, pressed_keys):
         
@@ -42,15 +43,15 @@ class Player(ObjectBase):
             self.isDead = False
             print("Respawn")
 
-        if (pressed_keys[pygame.K_w] == 1 and self.number == 1) or (pressed_keys[pygame.K_UP] == 1 and self.number == 2):
+        if (pressed_keys[pygame.K_w] == 1 and self.number == 1) or (pressed_keys[pygame.K_UP] == 1 and self.number == 2) and self.isDead == False:
             self.time_move(0, self.velocity)
             self.boundary_check()
 
-        if (pressed_keys[pygame.K_s] == 1 and self.number == 1) or (pressed_keys[pygame.K_DOWN] == 1 and self.number == 2):
+        if (pressed_keys[pygame.K_s] == 1 and self.number == 1) or (pressed_keys[pygame.K_DOWN] == 1 and self.number == 2) and self.isDead == False:
             self.time_move(0, -self.velocity)
             self.boundary_check()
 
-        if self.shot_cool_down.finished:
+        if self.shot_cool_down.finished and self.isDead == False:
             self.add_object("Bullet", {"angle": self.angle + 90}, x=self.x, y=self.bullet_y)
             self.shot_cool_down.restart()
 
