@@ -11,7 +11,7 @@ def run():
         images={
             "player1": {"path": "resources/player.png", "w": 32, "h": 32},
             "player2": {"path": "resources/player2.png", "w": 32, "h": 32},
-            "enemy": {"path": "resources/witch.png", "w": 32, "h": 32}
+            "enemy": {"path": "resources/pumpkin.png", "w": 32, "h": 32}
         },
         sprite_sheets={
 
