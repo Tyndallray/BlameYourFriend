@@ -38,7 +38,7 @@ class Player(ObjectBase):
 
     def draw(self):
         if(self.isDead == False):
-            self.draw_to_screen(self.image)
+            self.draw_to_screen(self.display_image)
 
     def update(self, pressed_keys):
         
@@ -54,12 +54,6 @@ class Player(ObjectBase):
         if (pressed_keys[pygame.K_s] == 1 and self.number == 1) or (pressed_keys[pygame.K_DOWN] == 1 and self.number == 2) and self.isDead == False:
             self.move_angle(self.velocity,self.angle)
             self.boundary_check()
-
-        if self.shot_cool_down.finished and self.isDead == False:
-            self.add_object("Bullet", {"angle": self.angle + 90}, x=self.x, y=self.bullet_y)
-            self.shot_cool_down.restart()
-       
-       
 
         if (pressed_keys[pygame.K_a] == 1 and self.number == 1) or (pressed_keys[pygame.K_LEFT] == 1 and self.number == 2):
             # self.time_move(self.velocity,0)
@@ -89,7 +83,7 @@ class Player(ObjectBase):
             temp = 360*temp2
             print("temp")
             print(temp)
-            if(temp<0):
+            if(temp<0 and self.isDead == False):
                 if(temp > -45 and temp <= 0):
                     self.add_object("Bullet", {"angle": self.angle + 180}, x=self.x, y=self.bullet_y)
                 elif(temp >= -90 and temp <= -45):
@@ -107,7 +101,7 @@ class Player(ObjectBase):
                 elif(temp >= -360 and temp < -315):
                     self.add_object("Bullet", {"angle": self.angle + 180}, x=self.x, y=self.bullet_y)
                 self.shot_cool_down.restart()
-            elif (temp>0):
+            elif (temp>0 and self.isDead == False):
                 if(temp < 45 and temp >= 0):
                     self.add_object("Bullet", {"angle": self.angle + 180}, x=self.x, y=self.bullet_y)
                 elif(temp <= 90 and temp >= 45):
